@@ -1,7 +1,12 @@
-import './App.css'
+import './App.css';
+import { ShowImages } from './components/Box';
 
 function App() {
-	return <div></div>
+	return (
+		<main className='main-container'>
+			<ShowImages />
+		</main>
+	);
 }
 
-export default App
+export default App;

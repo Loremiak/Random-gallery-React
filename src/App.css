@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: darkgrey;
+	font-family: 'Finlandica', sans-serif;
+	font-size: 19px;
+	transition: all 0.3s ease-in-out;
+}
+
+.main-container {
+	padding: 1.5rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+@media screen and (min-width: 667px) {
+	.main-container {
+		flex-flow: row wrap;
+		gap: 2.5rem;
+		width: 80%;
+		margin: 0 auto;
+	}
+}
