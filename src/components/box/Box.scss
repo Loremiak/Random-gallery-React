@@ -32,12 +32,11 @@
 	width: 100%;
 	height: 50px;
 	padding: 0.5rem 0;
-}
-
-.box-description-container div {
-	width: 150px;
-	display: flex;
-	justify-content: space-around;
+	div {
+		width: 150px;
+		display: flex;
+		justify-content: space-around;
+	}
 }
 
 .by-on {

@@ -1,13 +1,11 @@
 import { Pagination } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { fetchImages } from '../../services/getApiImg';
 
-export const PaginationShow = () => {
-	const [currentPage, setCurrentPage] = useState(0);
+export const PaginationShow = ({ setCurrentPage }) => {
+	// const [currentPage, setCurrentPage] = useState(1);
 
-	useEffect(() => {
-		fetchImages();
-	}, [setCurrentPage]);
+	// useEffect(() => {
+	// 	fetchImages({});
+	// }, [setCurrentPage]);
 
 	return (
 		<Pagination
@@ -15,10 +13,10 @@ export const PaginationShow = () => {
 			color='secondary'
 			showFirstButton
 			showLastButton
-			count={10}
+			count={5}
 			defaultPage={1}
-			page={currentPage}
 			onChange={(e, value) => {
+				console.log(value);
 				setCurrentPage(value);
 			}}
 		/>

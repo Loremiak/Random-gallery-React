@@ -14,9 +14,13 @@ Project is created with:
 
 ## To Do list
 
-- pagination
-- choose amount images per page
-- sort by location
+- [x] pagination
+- [x] loading
+- [x] choose amount images per page
+- [x] sort by(latest, popular, newest)
+- [ ] login/register
+- [ ] details image view
+- [ ] possibility to rate an image(for login user)
 
 ## Setup
 
