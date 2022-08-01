@@ -1,9 +1,10 @@
 // 'https://api.unsplash.com/photos/random?q=20&dpr=1&auto=compress&w=0.1&h=0.1&count=4&client_id=B8BDe-aHPzfvCIrnMM_fRgi-a9GcOMUrva1Th6yzPcYaa';
 
 import React from 'react';
+import { Images } from '../../interfaces/Images';
 import './Box.scss';
 
-export const ShowImages = ({ dataImg }) => {
+export const ShowImages = ({ dataImg }: { dataImg: Images[] }) => {
 	// const [dataImg, setDataImg] = useState([]);
 	// const [imgPerPage, setImgPerPage] = useState(3);
 	// const [orderBy, setOrderBy] = useState('latest');
@@ -52,12 +53,12 @@ export const ShowImages = ({ dataImg }) => {
 							<p className='box-title'>
 								{!photos.current_user_collections.title ? 'Anonymous' : photos.current_user_collections.title}
 							</p>
-							<img src={photos?.urls?.small} alt={photos?.user?.bio} className='unsplash-img' loading='lazy' />
+							<img src={photos.urls?.regular} alt={photos.user?.bio} className='unsplash-img' loading='lazy' />
 							<div className='box-description-container'>
 								<div>
 									<span className='by-on'>by</span>
-									<a className='description' href={photos?.user?.portfolio_url}>
-										{photos?.user?.name}
+									<a className='description' href={photos.user?.portfolio_url}>
+										{photos.user?.name}
 									</a>
 								</div>
 								<div>

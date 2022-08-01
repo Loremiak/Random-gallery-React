@@ -1,6 +1,6 @@
 ## General info
 
-This project is random gallery generator. You can see 4 different images after every refresh the page. It takes API data like: date, author name and portfolio url from unsplash.
+This is a random gallery project.
 
 ## Technologies
 
@@ -11,6 +11,7 @@ Project is created with:
 - JavaScript
 - React
 - REST API
+- MUI
 
 ## To Do list
 

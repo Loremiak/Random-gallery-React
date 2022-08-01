@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
-import { ShowImages } from './components/box/Box';
-import { OrderBy } from './components/imgOrderBy/ImgOrderBy';
-import { PerPage } from './components/imgPerPage/ImgPerPage';
-import { Loading } from './components/loading/Loading';
-import { PaginationShow } from './components/pagination/Pagination';
-import { fetchImages } from './services/getApiImg';
+import { ShowImages } from './components/box/Box.tsx';
+import { OrderBy } from './components/imgOrderBy/ImgOrderBy.tsx';
+import { PerPage } from './components/imgPerPage/ImgPerPage.tsx';
+import { Loading } from './components/loading/Loading.tsx';
+import { PaginationShow } from './components/pagination/Pagination.tsx';
+import { fetchImages } from './services/getApiImg.ts';
 
 function App() {
 	const [dataImg, setDataImg] = useState([]);
