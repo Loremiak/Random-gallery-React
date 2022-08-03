@@ -8,7 +8,7 @@ const fetchImages = async ({ imgPerPage, orderBy, currentPage, setIsLoading }: A
 	setIsLoading(true);
 	try {
 		const response = await fetch(
-			`${BASE_URL}?page=${currentPage}&per_page=${imgPerPage}&order_by=${orderBy}&client_id=${API_KEY}&auto=compress`,
+			`${BASE_URL}?page=${currentPage}&per_page=${imgPerPage}&order_by=${orderBy}&client_id=${API_KEY}&auto=compress`
 		);
 		const data = await response.json();
 		return data;

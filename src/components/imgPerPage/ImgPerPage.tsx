@@ -1,10 +1,16 @@
 import React from 'react';
+// import { ImgPerPage } from '../../interfaces/ImgPerPage';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+interface ImgPerPage {
+	setImgPerPage: number;
+}
+
 export const PerPage = ({ setImgPerPage }) => {
+	console.log(typeof setImgPerPage);
 	const handleChangeImgPerPage = (e: SelectChangeEvent<number>) => {
 		setImgPerPage(e.target.value);
 	};
