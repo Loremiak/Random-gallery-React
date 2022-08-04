@@ -10,5 +10,5 @@ export interface Images {
 		portfolio_url?: string;
 		name: string;
 	};
-	created_at: number | string;
+	created_at: number;
 }

@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-export const OrderBy = ({ setOrderBy }) => {
+export const OrderBy = ({ setOrderBy }: any) => {
 	const handleChangeOrderBy = (e: SelectChangeEvent<string>) => {
 		setOrderBy(e.target.value);
 	};
@@ -18,12 +18,5 @@ export const OrderBy = ({ setOrderBy }) => {
 				<MenuItem value='popular'>popular</MenuItem>
 			</Select>
 		</FormControl>
-		// <div>
-		// 	<select defaultValue={'latest'} onChange={handleChangeOrderBy}>
-		// 		<option value={'latest'}>latest</option>
-		// 		<option value={'oldest'}>oldest</option>
-		// 		<option value={'popular'}>popular</option>
-		// 	</select>
-		// </div>
 	);
 };

@@ -1,13 +1,7 @@
 import React from 'react';
 import { Pagination } from '@mui/material';
 
-export const PaginationShow = ({ setCurrentPage }) => {
-	// const [currentPage, setCurrentPage] = useState(1);
-
-	// useEffect(() => {
-	// 	fetchImages({});
-	// }, [setCurrentPage]);
-
+export const PaginationShow = ({ setCurrentPage }: any) => {
 	return (
 		<Pagination
 			variant='outlined'
