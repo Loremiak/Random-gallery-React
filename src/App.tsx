@@ -7,6 +7,41 @@ import { Loading } from './components/loading/Loading';
 import { PaginationShow } from './components/pagination/Pagination';
 import { Images } from './interfaces/Images';
 import { fetchImages } from './services/getApiImg';
+import styled from '@emotion/styled';
+
+const Wrapper = styled.main`
+	padding: 1.5rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2rem;
+	@media (min-width: 667px) {
+			gap: 2.5rem;
+		}
+	}
+`;
+const OrderContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	@media (min-width: 667px) {
+		flex-direction: row;
+	}
+`;
+const BoxContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	@media (min-width: 996px) {
+		flex-direction: row;
+		flex-wrap: wrap;
+		max-width: 65%;
+	}
+`;
 
 function App() {
 	const [dataImg, setDataImg] = useState<Images[]>([]);
@@ -41,13 +76,17 @@ function App() {
 	}, [imgPerPage, orderBy, currentPage, getImages]);
 
 	return (
-		<main className='main-container'>
-			<PerPage setImgPerPage={setImgPerPage} />
-			<OrderBy setOrderBy={setOrderBy} />
+		<Wrapper>
+			<OrderContainer>
+				<PerPage setImgPerPage={setImgPerPage} />
+				<OrderBy setOrderBy={setOrderBy} />
+			</OrderContainer>
 			<PaginationShow setCurrentPage={setCurrentPage} />
 			{isLoading && <Loading />}
-			<ShowImages dataImg={sordedDate} />
-		</main>
+			<BoxContainer>
+				<ShowImages dataImg={sordedDate} />
+			</BoxContainer>
+		</Wrapper>
 	);
 }
 

@@ -1,72 +1,105 @@
 // 'https://api.unsplash.com/photos/random?q=20&dpr=1&auto=compress&w=0.1&h=0.1&count=4&client_id=B8BDe-aHPzfvCIrnMM_fRgi-a9GcOMUrva1Th6yzPcYaa';
 
+import styled from '@emotion/styled';
 import React from 'react';
 import { Images } from '../../interfaces/Images';
-import './Box.scss';
+
+const Box = styled.div`
+	position: relative;
+	background-color: aliceblue;
+	border: #660066 solid 3px;
+	width: 85%;
+	max-width: 400px;
+	height: auto;
+	border-radius: 15px;
+	overflow: hidden;
+`;
+const BoxTitle = styled.p`
+	font-weight: bold;
+	padding: 0.5rem 0 1.5rem 0.5rem;
+	@media (min-width: 667px) {
+		position: absolute;
+		padding: 0;
+		font-size: 1.25rem;
+		bottom: 70px;
+		left: 20px;
+		z-index: 1;
+	}
+`;
+const ImgSize = styled.img`
+	width: 100%;
+	height: 100%;
+`;
+const BoxDescriptionContainer = styled.div`
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(240, 248, 255, 0.363);
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	width: 100%;
+	height: 50px;
+	padding: 0.5rem 0;
+	@media (min-width: 667px) {
+		height: 125px;
+		background: rgb(255, 255, 255);
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.1) 0%,
+			rgba(255, 255, 255, 0.7) 35%,
+			rgba(255, 255, 255, 0.8) 100%
+		);
+		align-items: flex-end;
+		justify-content: space-evenly;
+		padding-bottom: 1.25rem;
+	}
+`;
+const DescriptionDetailsInfo = styled.div`
+	width: 150px;
+	display: flex;
+	justify-content: space-around;
+`;
+const ByOnInfo = styled.span`
+	font-weight: bold;
+	font-size: 0.75rem;
+	@media (min-width: 667px) {
+		padding-bottom: 0.5rem;
+	}
+`;
+const Link = styled.a`
+	color: darkviolet;
+`;
+const DateInfo = styled.p`
+	font-size: 0.75rem;
+	margin-top: 0.5rem;
+	@media (min-width: 667px) {
+		font-size: 1rem;
+		margin-top: 0.75rem;
+	}
+`;
 
 export const ShowImages = ({ dataImg }: { dataImg: Images[] }) => {
-	// const [dataImg, setDataImg] = useState([]);
-	// const [imgPerPage, setImgPerPage] = useState(3);
-	// const [orderBy, setOrderBy] = useState('latest');
-
-	// const url = `https://api.unsplash.com/photos/?per_page=${imgPerPage}&order_by=${orderBy}&auto=compress&client_id=B8BDe-aHPzfvCIrnMM_fRgi-a9GcOMUrva1Th6yzPcYaa`;
-
-	// useEffect(() => {
-	// 	const getImages = async () => {
-	// 		const data = await fetchImages({ imgPerPage, orderBy });
-	// 		setDataImg(data);
-	// 	};
-	// 	getImages();
-	// }, [imgPerPage, orderBy]);
-
-	// const handleChangeImgPerPage = e => {
-	// 	setImgPerPage(e?.target.value);
-	// };
-
-	// const handleChangeOrderBy = e => {
-	// 	setOrderBy(e?.target.value);
-	// };
-
-	console.log(dataImg);
-	console.log(dataImg.length);
 	return (
 		<>
-			{/* <div>
-				<select defaultValue={3} onChange={handleChangeImgPerPage}>
-					<option value={3}>3</option>
-					<option value={4}>4</option>
-					<option value={5}>5</option>
-					<option value={6}>6</option>
-				</select>
-			</div> */}
-			{/* <div>
-				<select defaultValue={'latest'} onChange={handleChangeOrderBy}>
-					<option value={'latest'}>latest</option>
-					<option value={'oldest'}>oldest</option>
-					<option value={'popular'}>popular</option>
-				</select>
-			</div> */}
 			{dataImg &&
 				dataImg.map((photos, index) => {
 					return (
-						<div className='box' key={index}>
-							<p className='box-title'>
+						<Box key={index}>
+							<BoxTitle>
 								{!photos.current_user_collections.title ? 'Anonymous' : photos.current_user_collections.title}
-							</p>
-							<img src={photos.urls?.regular} alt={photos.user?.bio} className='unsplash-img' loading='lazy' />
-							<div className='box-description-container'>
-								<div>
-									<span className='by-on'>by</span>
-									<a className='description' href={photos.user?.portfolio_url}>
-										{photos.user?.name}
-									</a>
-								</div>
-								<div>
-									<span className='by-on'>on</span>
-									<p className='description'>{new Date(photos.created_at).toLocaleDateString('en-NZ')}</p>
-								</div>
-							</div>
-						</div>
+							</BoxTitle>
+							<ImgSize src={photos.urls?.regular} alt={photos.user?.bio} loading='lazy' />
+							<BoxDescriptionContainer>
+								<DescriptionDetailsInfo>
+									<ByOnInfo>by</ByOnInfo>
+									<Link href={photos.user?.portfolio_url}>{photos.user?.name}</Link>
+								</DescriptionDetailsInfo>
+								<DescriptionDetailsInfo>
+									<ByOnInfo>on</ByOnInfo>
+									<DateInfo>{new Date(photos.created_at).toLocaleDateString('en-NZ')}</DateInfo>
+								</DescriptionDetailsInfo>
+							</BoxDescriptionContainer>
+						</Box>
 					);
 				})}
 		</>

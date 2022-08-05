@@ -1,10 +1,23 @@
 import React from 'react';
 import { Pagination } from '@mui/material';
+import './Pagi.scss';
+
+// import { createTheme } from '@mui/material';
+
+// import { deepPurple } from '@mui/material/colors';
+
+// const theme = createTheme({
+// 	palette: {
+// 		primary: {
+// 			main: deepPurple[500],
+// 			contrastText: '#ffcc00',
+// 		},
+// 	},
+// });
 
 export const PaginationShow = ({ setCurrentPage }: any) => {
 	return (
 		<Pagination
-			variant='outlined'
 			color='secondary'
 			showFirstButton
 			showLastButton
