@@ -1,5 +1,3 @@
-// 'https://api.unsplash.com/photos/random?q=20&dpr=1&auto=compress&w=0.1&h=0.1&count=4&client_id=B8BDe-aHPzfvCIrnMM_fRgi-a9GcOMUrva1Th6yzPcYaa';
-
 import styled from '@emotion/styled';
 import React from 'react';
 import { Images } from '../../interfaces/Images';
@@ -77,8 +75,12 @@ const DateInfo = styled.p`
 		margin-top: 0.75rem;
 	}
 `;
+interface ShowImagesProps {
+	dataImg: Images[];
+}
 
-export const ShowImages = ({ dataImg }: { dataImg: Images[] }) => {
+export const ShowImages = ({ dataImg }: ShowImagesProps) => {
+	if (!dataImg) return null;
 	return (
 		<>
 			{dataImg &&

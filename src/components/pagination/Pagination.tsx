@@ -1,6 +1,5 @@
 import React from 'react';
 import { Pagination } from '@mui/material';
-import './Pagi.scss';
 
 // import { createTheme } from '@mui/material';
 
@@ -14,17 +13,20 @@ import './Pagi.scss';
 // 		},
 // 	},
 // });
+interface Props {
+	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+}
 
-export const PaginationShow = ({ setCurrentPage }: any) => {
+export const PaginationShow = ({ setCurrentPage }: Props) => {
 	return (
 		<Pagination
+			className='Pagination'
 			color='secondary'
 			showFirstButton
 			showLastButton
 			count={5}
 			defaultPage={1}
 			onChange={(e, value) => {
-				console.log(value);
 				setCurrentPage(value);
 			}}
 		/>

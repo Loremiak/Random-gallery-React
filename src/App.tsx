@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import { ShowImages } from './components/box/Box';
 import { OrderBy } from './components/imgOrderBy/ImgOrderBy';
 import { PerPage } from './components/imgPerPage/ImgPerPage';
 import { Loading } from './components/loading/Loading';
 import { PaginationShow } from './components/pagination/Pagination';
-import { Images } from './interfaces/Images';
-import { fetchImages } from './services/getApiImg';
+import { useFetchImages } from './services/useFetchData';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.main`
@@ -42,46 +41,79 @@ const BoxContainer = styled.div`
 		max-width: 65%;
 	}
 `;
+const PaginationContainer = styled.div`
+	background-color: rgba(255, 176, 217, 0.6);
+	padding: 1.5rem;
+	margin-top: 0;
+	width: auto;
+	border-radius: 6px;
+`;
+
+// function App() {
+// 	const [dataImg, setDataImg] = useState<Images[]>([]);
+// 	const [imgPerPage, setImgPerPage] = useState<number>(3);
+// 	const [orderBy, setOrderBy] = useState<string>('latest');
+// 	const [currentPage, setCurrentPage] = useState<number>(1);
+// 	const [isLoading, setIsLoading] = useState<boolean>(false);
+
+// 	// 	const [isDetailsModalVisible, setIsDetailsModalVisible] = useState(false)
+// 	// const handleOnClick = () => {
+// 	// setIsDetailsModalVisible((state) => !state)
+
+// 	const getImages = useCallback(async () => {
+// 		setIsLoading(true);
+// 		try {
+// 			const data = await fetchImages(imgPerPage, orderBy, currentPage);
+// 			setDataImg(data);
+// 		} catch (error) {
+// 			console.log('error');
+// 		}
+// 		setIsLoading(false);
+// 	}, [imgPerPage, orderBy, currentPage]);
+
+// 	const sordedDate = Array.isArray(dataImg)
+// 		? dataImg.sort((a, b) => {
+// 				return b.created_at - a.created_at;
+// 		  })
+// 		: [];
+
+// 	useEffect(() => {
+// 		getImages();
+// 	}, [imgPerPage, orderBy, currentPage, getImages]);
+
+// 	return (
+// 		<Wrapper>
+// 			<OrderContainer>
+// 				<PerPage setImgPerPage={setImgPerPage} />
+// 				<OrderBy setOrderBy={setOrderBy} />
+// 			</OrderContainer>
+// 			<PaginationShow setCurrentPage={setCurrentPage} />
+// 			{isLoading && <Loading />}
+// 			<BoxContainer>
+// 				<ShowImages dataImg={sordedDate} />
+// 			</BoxContainer>
+// 		</Wrapper>
+// 	);
+// }
 
 function App() {
-	const [dataImg, setDataImg] = useState<Images[]>([]);
-	const [imgPerPage, setImgPerPage] = useState<number>(3);
-	const [orderBy, setOrderBy] = useState<string>('latest');
-	const [currentPage, setCurrentPage] = useState<number>(1);
-	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [imgPerPage, setImgPerPage] = useState(3);
+	const [orderBy, setOrderBy] = useState('latest');
+	const [currentPage, setCurrentPage] = useState(1);
 
-	// 	const [isDetailsModalVisible, setIsDetailsModalVisible] = useState(false)
-	// const handleOnClick = () => {
-	// setIsDetailsModalVisible((state) => !state)
+	const { dataImg, isLoading } = useFetchImages(imgPerPage, orderBy, currentPage);
 
-	const getImages = useCallback(async () => {
-		setIsLoading(true);
-		try {
-			const data = await fetchImages({ imgPerPage, orderBy, currentPage, setIsLoading });
-			setDataImg(data);
-		} catch (error) {
-			console.log('error');
-		}
-		setIsLoading(false);
-	}, [imgPerPage, orderBy, currentPage]);
-
-	const sordedDate =
-		dataImg &&
-		dataImg.sort((a, b) => {
-			return b.created_at - a.created_at;
-		});
-
-	useEffect(() => {
-		getImages();
-	}, [imgPerPage, orderBy, currentPage, getImages]);
+	const sordedDate = dataImg.sort((a, b) => b.created_at - a.created_at);
 
 	return (
 		<Wrapper>
-			<OrderContainer>
-				<PerPage setImgPerPage={setImgPerPage} />
-				<OrderBy setOrderBy={setOrderBy} />
-			</OrderContainer>
-			<PaginationShow setCurrentPage={setCurrentPage} />
+			<PaginationContainer>
+				<OrderContainer>
+					<PerPage setImgPerPage={setImgPerPage} />
+					<OrderBy setOrderBy={setOrderBy} />
+				</OrderContainer>
+				<PaginationShow setCurrentPage={setCurrentPage} />
+			</PaginationContainer>
 			{isLoading && <Loading />}
 			<BoxContainer>
 				<ShowImages dataImg={sordedDate} />

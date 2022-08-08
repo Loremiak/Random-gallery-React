@@ -4,7 +4,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-export const PerPage = ({ setImgPerPage }: any) => {
+interface Props {
+	setImgPerPage: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export const PerPage = ({ setImgPerPage }: Props) => {
 	const handleChangeImgPerPage = (e: SelectChangeEvent<number>) => {
 		setImgPerPage(e.target.value);
 	};
