@@ -13,6 +13,7 @@ import { Pagination } from '@mui/material';
 // 		},
 // 	},
 // });
+
 interface Props {
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -20,7 +21,6 @@ interface Props {
 export const PaginationShow = ({ setCurrentPage }: Props) => {
 	return (
 		<Pagination
-			className='Pagination'
 			color='secondary'
 			showFirstButton
 			showLastButton

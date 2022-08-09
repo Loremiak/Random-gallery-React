@@ -7,11 +7,10 @@ This is a random gallery project.
 Project is created with:
 
 - HTML
-- CSS/SCSS
-- JavaScript
-- React
+- CSS/SCSS, StyledComponents, MUI
+- JavaScript/TypeScript
+- React, React-Router-DOM
 - REST API
-- MUI
 
 ## To Do list
 
@@ -19,7 +18,7 @@ Project is created with:
 - [x] loading
 - [x] choose amount images per page
 - [x] sort by(latest, popular, newest)
-- [ ] login/register
+- [ ] login/register (UI - 75%, func - 0%)
 - [ ] details image view
 - [ ] possibility to rate an image(for login user)
 

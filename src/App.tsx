@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.scss';
 import { ShowImages } from './components/box/Box';
 import { OrderBy } from './components/imgOrderBy/ImgOrderBy';
 import { PerPage } from './components/imgPerPage/ImgPerPage';
@@ -7,9 +6,12 @@ import { Loading } from './components/loading/Loading';
 import { PaginationShow } from './components/pagination/Pagination';
 import { useFetchImages } from './services/useFetchData';
 import styled from '@emotion/styled';
+import { Login } from './components/login/Login';
+import { Register } from './components/register/Register';
+import { BtnContainer } from './components/login_registerBtn/BtnContainer';
 
 const Wrapper = styled.main`
-	padding: 1.5rem 0;
+	padding-bottom: 1.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -45,8 +47,12 @@ const PaginationContainer = styled.div`
 	background-color: rgba(255, 176, 217, 0.6);
 	padding: 1.5rem;
 	margin-top: 0;
-	width: auto;
+	width: 100%;
 	border-radius: 6px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 `;
 
 // function App() {
@@ -103,11 +109,12 @@ function App() {
 
 	const { dataImg, isLoading } = useFetchImages(imgPerPage, orderBy, currentPage);
 
-	const sordedDate = dataImg.sort((a, b) => b.created_at - a.created_at);
+	const sordedDate = dataImg.sort((a, b) => a.created_at - b.created_at);
 
 	return (
 		<Wrapper>
 			<PaginationContainer>
+				<BtnContainer />
 				<OrderContainer>
 					<PerPage setImgPerPage={setImgPerPage} />
 					<OrderBy setOrderBy={setOrderBy} />
@@ -118,6 +125,8 @@ function App() {
 			<BoxContainer>
 				<ShowImages dataImg={sordedDate} />
 			</BoxContainer>
+			<Login />
+			<Register />
 		</Wrapper>
 	);
 }

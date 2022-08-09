@@ -10,7 +10,7 @@ interface Props {
 
 export const PerPage = ({ setImgPerPage }: Props) => {
 	const handleChangeImgPerPage = (e: SelectChangeEvent<number>) => {
-		setImgPerPage(e.target.value);
+		setImgPerPage(Number(e.target.value));
 	};
 
 	return (
