@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -49,24 +49,24 @@ export const Login = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 
-	const handleSubmit = (e: { preventDefault: () => void }) => {
-		e.preventDefault();
+	const handleSubmit = (event: FormEvent) => {
+		event.preventDefault();
 		console.log(email);
 		console.log(password);
 	};
 
 	return (
 		<Wrapper>
-			<h1>Please Log in</h1>
+			<h1>Please log in</h1>
 			{/* {message && <p className='error'>{message}</p>} */}
 			<form onSubmit={handleSubmit}>
 				<Labels>
 					<LabelP>Email</LabelP>
-					<Inputs type='email' onChange={e => setEmail(e.target.value)} />
+					<Inputs type='email' required onChange={event => setEmail(event.target.value)} />
 				</Labels>
 				<Labels>
 					<LabelP>Password</LabelP>
-					<Inputs type='password' onChange={e => setPassword(e.target.value)} />
+					<Inputs type='password' required onChange={event => setPassword(event.target.value)} />
 				</Labels>
 				<BtnContainer>
 					<BtnSubmit type='submit'>Log in!</BtnSubmit>

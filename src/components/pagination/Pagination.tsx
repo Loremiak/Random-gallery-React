@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pagination } from '@mui/material';
 
 // import { createTheme } from '@mui/material';
@@ -14,11 +13,11 @@ import { Pagination } from '@mui/material';
 // 	},
 // });
 
-interface Props {
+interface PaginationShowProps {
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export const PaginationShow = ({ setCurrentPage }: Props) => {
+export const PaginationShow = ({ setCurrentPage }: PaginationShowProps) => {
 	return (
 		<Pagination
 			color='secondary'
@@ -26,7 +25,7 @@ export const PaginationShow = ({ setCurrentPage }: Props) => {
 			showLastButton
 			count={5}
 			defaultPage={1}
-			onChange={(e, value) => {
+			onChange={(event, value) => {
 				setCurrentPage(value);
 			}}
 		/>

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
@@ -49,7 +49,7 @@ export const Register = () => {
 	const [email, setEmail] = useState<string>();
 	const [password, setPassword] = useState<string>();
 
-	const handleSubmit = async (e: { preventDefault: () => void }) => {
+	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		console.log(email);
 		console.log(password);
@@ -66,11 +66,11 @@ export const Register = () => {
 			<form onSubmit={handleSubmit}>
 				<Labels>
 					<LabelP>Email</LabelP>
-					<Inputs type='email' onChange={e => setEmail(e.target.value)} />
+					<Inputs type='email' required onChange={e => setEmail(e.target.value)} />
 				</Labels>
 				<Labels>
 					<LabelP>Password</LabelP>
-					<Inputs type='password' onChange={e => setPassword(e.target.value)} />
+					<Inputs type='password' required onChange={e => setPassword(e.target.value)} />
 				</Labels>
 				<BtnContainer>
 					<BtnSubmit type='submit'>Register!</BtnSubmit>
