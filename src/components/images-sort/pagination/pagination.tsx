@@ -1,18 +1,5 @@
 import { Pagination } from '@mui/material';
 
-// import { createTheme } from '@mui/material';
-
-// import { deepPurple } from '@mui/material/colors';
-
-// const theme = createTheme({
-// 	palette: {
-// 		primary: {
-// 			main: deepPurple[500],
-// 			contrastText: '#ffcc00',
-// 		},
-// 	},
-// });
-
 interface PaginationShowProps {
 	setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }

@@ -1,5 +1,5 @@
 {
-	"name": "aaa",
+	"name": "random-gallery-react",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
@@ -50,6 +50,7 @@
 	},
 	"devDependencies": {
 		"css-loader": "^6.7.1",
-		"sass": "^1.54.0"
+		"sass": "^1.54.0",
+		"netlify-cli": "^3.38.10"
 	}
 }

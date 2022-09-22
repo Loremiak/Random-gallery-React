@@ -1,0 +1,30 @@
+.button {
+	&__container {
+		&__button {
+			padding: 110px;
+			border-radius: 5px;
+			width: 1110px;
+			transition: all 0.3s ease-in-out;
+
+			&--light {
+				border: 2px solid blueviolet;
+
+				&:hover {
+					background-color: #4e258fcf;
+					color: white;
+					border: 2px solid black;
+				}
+			}
+
+			&--dark {
+				border: 2px solid blueviolet;
+
+				&:hover {
+					background-color: #4e258fcf;
+					color: white;
+					border: 2px solid black;
+				}
+			}
+		}
+	}
+}

@@ -3,11 +3,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-interface OrderByProps {
+interface ImagesOrderByProps {
 	setOrderBy: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const OrderBy = ({ setOrderBy }: OrderByProps) => {
+export const ImagesOrderBy = ({ setOrderBy }: ImagesOrderByProps) => {
 	const handleChangeOrderBy = (event: SelectChangeEvent<string>) => {
 		setOrderBy(event.target.value);
 	};

@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { ShowImages } from './components/box/Box';
-import { OrderBy } from './components/imgOrderBy/ImgOrderBy';
-import { PerPage } from './components/imgPerPage/ImgPerPage';
-import { Loading } from './components/loading/Loading';
-import { PaginationShow } from './components/pagination/Pagination';
+import { LoaderSpinner } from './components/loader-spinner/loader-spinner';
 import { useFetchImages } from './services/useFetchData';
 import styled from '@emotion/styled';
-import { BtnContainer } from './components/login_registerBtn/BtnContainer';
+import { BtnContainer } from './components/buttons/login_registerBtn/BtnContainer';
 import { Outlet } from 'react-router-dom';
+import { ImagesPerPage } from './components/images-sort/images-per-page/images-per-page';
+import { PaginationShow } from './components/images-sort/pagination/pagination';
+import { ShowImages } from './components/box/box';
+import { ImagesOrderBy } from './components/images-sort/images-order-by/images-order-by';
+import { Navbar } from './components/navbar/navbar';
 
 const Wrapper = styled.main`
 	padding-bottom: 1.5rem;
@@ -113,15 +114,16 @@ function App() {
 	return (
 		<>
 			<Wrapper>
-				<PaginationContainer>
+				<Navbar />
+				{/* <PaginationContainer>
 					<BtnContainer />
 					<OrderContainer>
-						<PerPage setImgPerPage={setImgPerPage} />
-						<OrderBy setOrderBy={setOrderBy} />
+						<ImagesPerPage setImagesPerPage={setImgPerPage} />
+						<ImagesOrderBy setOrderBy={setOrderBy} />
 					</OrderContainer>
 					<PaginationShow setCurrentPage={setCurrentPage} />
-				</PaginationContainer>
-				{isLoading && <Loading />}
+				</PaginationContainer> */}
+				{isLoading && <LoaderSpinner />}
 				<BoxContainer>
 					<ShowImages dataImg={sordedDate} />
 				</BoxContainer>
