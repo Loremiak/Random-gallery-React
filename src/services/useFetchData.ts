@@ -20,8 +20,8 @@
 
 // export { fetchImages };
 
+import { Images } from 'interfaces/Images';
 import { useCallback, useEffect, useState } from 'react';
-import { Images } from '../interfaces/Images';
 
 // interface ImagesSortProps {
 // 	imgPerPage: number;

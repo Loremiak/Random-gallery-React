@@ -1,4 +1,4 @@
-import { Images } from '../../interfaces/Images';
+import { Images } from 'interfaces/Images';
 import './box.scss';
 
 interface ShowImagesProps {

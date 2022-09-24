@@ -1,9 +1,9 @@
+import { Button } from 'components/buttons/button/button';
+import { ImagesOrderBy } from 'components/images-sort/images-order-by/images-order-by';
+import { ImagesPerPage } from 'components/images-sort/images-per-page/images-per-page';
+import { PaginationShow } from 'components/images-sort/pagination/pagination';
 import { useState } from 'react';
-import { useFetchImages } from '../../services/useFetchData';
-import { Button } from '../buttons/button/button';
-import { ImagesOrderBy } from '../images-sort/images-order-by/images-order-by';
-import { ImagesPerPage } from '../images-sort/images-per-page/images-per-page';
-import { PaginationShow } from '../images-sort/pagination/pagination';
+import { useFetchImages } from 'services/useFetchData';
 import './navbar.scss';
 
 export const Navbar = () => {
