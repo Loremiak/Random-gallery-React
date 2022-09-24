@@ -23,6 +23,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Images } from '../interfaces/Images';
 
+// interface ImagesSortProps {
+// 	imgPerPage: number;
+// 	orderBy: string;
+// 	currentPage: number;
+// }
+
 const API_KEY = process.env.REACT_APP_RANDOM_GALLERY_API_KEY;
 
 const BASE_URL = 'https://api.unsplash.com/photos/';
