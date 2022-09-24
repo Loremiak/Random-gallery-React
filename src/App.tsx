@@ -6,7 +6,7 @@ import { BtnContainer } from './components/buttons/login_registerBtn/BtnContaine
 import { Outlet } from 'react-router-dom';
 import { ImagesPerPage } from './components/images-sort/images-per-page/images-per-page';
 import { PaginationShow } from './components/images-sort/pagination/pagination';
-import { ShowImages } from './components/box-box/box';
+import { ShowImages } from './components/box-image/box';
 import { ImagesOrderBy } from './components/images-sort/images-order-by/images-order-by';
 import { Navbar } from './components/navbar/navbar';
 
