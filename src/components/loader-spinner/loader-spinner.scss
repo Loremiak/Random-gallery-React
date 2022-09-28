@@ -4,6 +4,7 @@
 	align-content: center;
 	position: absolute;
 	top: 200px;
+	z-index: 1;
 
 	&__image {
 		animation: spin 3s linear infinite;

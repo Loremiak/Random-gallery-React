@@ -1,106 +1,13 @@
 import { useState } from 'react';
 import { LoaderSpinner } from './components/loader-spinner/loader-spinner';
 import { useFetchImages } from './services/useFetchData';
-import styled from '@emotion/styled';
-import { BtnContainer } from './components/buttons/login_registerBtn/BtnContainer';
 import { Outlet } from 'react-router-dom';
 import { ImagesPerPage } from './components/images-sort/images-per-page/images-per-page';
 import { PaginationShow } from './components/images-sort/pagination/pagination';
 import { ShowImages } from './components/box-image/box';
 import { ImagesOrderBy } from './components/images-sort/images-order-by/images-order-by';
-import { Navbar } from './components/navbar/navbar';
-
-const Wrapper = styled.main`
-	padding-bottom: 1.5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	gap: 2rem;
-	@media (min-width: 667px) {
-			gap: 2.5rem;
-		}
-	}
-`;
-const OrderContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	@media (min-width: 667px) {
-		flex-direction: row;
-	}
-`;
-const BoxContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-	@media (min-width: 996px) {
-		flex-direction: row;
-		flex-wrap: wrap;
-		max-width: 65%;
-	}
-`;
-const PaginationContainer = styled.div`
-	background-color: rgba(255, 176, 217, 0.6);
-	padding: 1.5rem;
-	margin-top: 0;
-	width: 100%;
-	border-radius: 6px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	position: relative;
-`;
-
-// function App() {
-// 	const [dataImg, setDataImg] = useState<Images[]>([]);
-// 	const [imgPerPage, setImgPerPage] = useState<number>(3);
-// 	const [orderBy, setOrderBy] = useState<string>('latest');
-// 	const [currentPage, setCurrentPage] = useState<number>(1);
-// 	const [isLoading, setIsLoading] = useState<boolean>(false);
-
-// 	// 	const [isDetailsModalVisible, setIsDetailsModalVisible] = useState(false)
-// 	// const handleOnClick = () => {
-// 	// setIsDetailsModalVisible((state) => !state)
-
-// 	const getImages = useCallback(async () => {
-// 		setIsLoading(true);
-// 		try {
-// 			const data = await fetchImages(imgPerPage, orderBy, currentPage);
-// 			setDataImg(data);
-// 		} catch (error) {
-// 			console.log('error');
-// 		}
-// 		setIsLoading(false);
-// 	}, [imgPerPage, orderBy, currentPage]);
-
-// 	const sordedDate = Array.isArray(dataImg)
-// 		? dataImg.sort((a, b) => {
-// 				return b.created_at - a.created_at;
-// 		  })
-// 		: [];
-
-// 	useEffect(() => {
-// 		getImages();
-// 	}, [imgPerPage, orderBy, currentPage, getImages]);
-
-// 	return (
-// 		<Wrapper>
-// 			<OrderContainer>
-// 				<PerPage setImgPerPage={setImgPerPage} />
-// 				<OrderBy setOrderBy={setOrderBy} />
-// 			</OrderContainer>
-// 			<PaginationShow setCurrentPage={setCurrentPage} />
-// 			{isLoading && <Loading />}
-// 			<BoxContainer>
-// 				<ShowImages dataImg={sordedDate} />
-// 			</BoxContainer>
-// 		</Wrapper>
-// 	);
-// }
+import { Button } from 'components/buttons/button/button';
+import './app.scss';
 
 function App() {
 	const [imgPerPage, setImgPerPage] = useState(3);
@@ -113,21 +20,23 @@ function App() {
 
 	return (
 		<>
-			<Wrapper>
-				<Navbar />
-				{/* <PaginationContainer>
-					<BtnContainer />
-					<OrderContainer>
+			<div className='main'>
+				<div className='navbar'>
+					<div className='navbar__buttons'>
+						<Button destination='login' title='In progress...'></Button>
+						<Button destination='register' title='In progress...'></Button>
+					</div>
+					<div className='navbar__menu'>
 						<ImagesPerPage setImagesPerPage={setImgPerPage} />
 						<ImagesOrderBy setOrderBy={setOrderBy} />
-					</OrderContainer>
+					</div>
 					<PaginationShow setCurrentPage={setCurrentPage} />
-				</PaginationContainer> */}
+				</div>
 				{isLoading && <LoaderSpinner />}
-				<BoxContainer>
+				<div className='box__container-image'>
 					<ShowImages dataImg={sordedDate} />
-				</BoxContainer>
-			</Wrapper>
+				</div>
+			</div>
 			<Outlet />
 		</>
 	);

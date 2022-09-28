@@ -4,7 +4,7 @@ import './button.scss';
 interface ButtonProp {
 	destination: string;
 	title: string;
-	variant: '--light' | '--dark';
+	variant?: '--light' | '--dark';
 }
 
 export const Button = ({ destination, title }: ButtonProp) => {
