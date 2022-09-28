@@ -14,7 +14,7 @@ export const ShowImages = ({ dataImg }: ShowImagesProps) => {
 					return (
 						<div className='box' key={index}>
 							<p className='box__title'>
-								{!photos.current_user_collections.title ? 'aaaa' : photos.current_user_collections.title}
+								{!photos.current_user_collections.title ? '' : photos.current_user_collections.title}
 							</p>
 							<img className='box__images' src={photos.urls?.regular} alt={photos.user?.bio} loading='lazy' />
 							<div className='box__container-info'>
