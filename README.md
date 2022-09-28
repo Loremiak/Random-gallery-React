@@ -7,7 +7,7 @@ This is a random gallery project.
 Project is created with:
 
 - HTML
-- CSS/SCSS, StyledComponents, MUI
+- CSS/SCSS, MUI
 - JavaScript/TypeScript
 - React, React-Router-DOM
 - REST API
