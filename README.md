@@ -24,4 +24,4 @@ Project is created with:
 
 ## Setup
 
-Live demo: <a href=''>Soon...</a>
+Live demo: <a href='https://shimmering-empanada-e88d54.netlify.app/'>Click!</a>
