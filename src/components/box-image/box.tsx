@@ -7,6 +7,7 @@ interface ShowImagesProps {
 
 export const ShowImages = ({ dataImg }: ShowImagesProps) => {
 	if (!dataImg) return null;
+
 	return (
 		<>
 			{dataImg &&

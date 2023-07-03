@@ -50,26 +50,24 @@
 		}
 	}
 
-	&__info {
-		&-by {
-			position: absolute;
-			top: 5px;
-			left: 10px;
-			font-size: 1rem;
+	&__info-by {
+		position: absolute;
+		top: 5px;
+		left: 10px;
+		font-size: 1rem;
 
-			@media (min-width: 667px) {
-				top: 12px;
-			}
+		@media (min-width: 667px) {
+			top: 12px;
 		}
+	}
 
-		&-on {
-			position: absolute;
-			top: 5px;
-			right: 10px;
-			font-size: 1rem;
-			@media (min-width: 667px) {
-				top: 12px;
-			}
+	&__info-on {
+		position: absolute;
+		top: 5px;
+		right: 10px;
+		font-size: 1rem;
+		@media (min-width: 667px) {
+			top: 12px;
 		}
 	}
 

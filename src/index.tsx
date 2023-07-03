@@ -3,19 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Login } from './pages/login/Login';
-import { Register } from './pages/register/Register';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const root = ReactDOM.createRoot(document.querySelector('#root') as Element);
+
+const queryClient = new QueryClient();
+
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<Routes>
-				<Route path='/' element={<App />}>
-					<Route path='login' element={<Login />}></Route>
-					<Route path='register' element={<Register />}></Route>
-				</Route>
-			</Routes>
+			<QueryClientProvider client={queryClient}>
+				<Routes>
+					<Route path='/' element={<App />}></Route>
+				</Routes>
+			</QueryClientProvider>
 		</BrowserRouter>
 	</React.StrictMode>
 );
