@@ -14,8 +14,6 @@ function App() {
 
 	const { data: images, isLoading } = useFetchImages({ imgPerPage, orderBy, currentPage });
 
-	console.log(images);
-
 	return (
 		<div className='main'>
 			<div className='navbar'>
